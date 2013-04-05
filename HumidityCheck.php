@@ -1,9 +1,8 @@
 <?php
 /*
- * Window Condensation Defender for Nest 2nd-Gen
+ * Humidity Maintenance for Nest 2nd-Gen
  *
- * Check temperature and adjust humidity level to prevent window condensation.
- * Assumes temperature scale is in Fahrenheit.
+ * For 2nd-generation thermostats with a humidifier.  Maintain humidity at specific dewpoint, and reduce humidity as outside temperature drops to prevent window condensation.
  */
 
 require_once('nest.class.php');
