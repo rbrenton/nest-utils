@@ -111,7 +111,7 @@ class Nest {
 
     public function getDeviceInfo($serial_number=null) {
         $this->getStatus();
-        $serial_number = $this->getDefaultSerial($serial_number);
+            $serial_number = $this->getDefaultSerial($serial_number);
         list(, $structure) = explode('.', $this->last_status->link->{$serial_number}->structure);
         $manual_away = $this->last_status->structure->{$structure}->away;
         $mode = strtolower($this->last_status->device->{$serial_number}->current_schedule_mode);
@@ -229,7 +229,7 @@ class Nest {
 
     public function setHumidity($humidity, $serial_number=null) {
         $serial_number = $this->getDefaultSerial($serial_number);
-        $data = json_encode(array('target_humidity' => ((double)$humidity)));
+        $data = json_encode(array('target_humidity' => ((double) $humidity)));
         return $this->doPOST("/v2/put/device." . $serial_number, $data);
     }
 
@@ -434,7 +434,7 @@ class Nest {
         }
 
         if ($info['http_code'] == 400) {
-          if(!is_object($json)) die($response);
+	    if(!is_object($json)) die($response);
             die("HTTP 400 - $json->error: $json->error_description\n");
         }
 
